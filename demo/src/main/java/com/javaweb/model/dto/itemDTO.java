@@ -11,5 +11,7 @@ public class itemDTO {
     private BigDecimal price ;
     private String img ;
     private String description;
+    private String category;
     private String is_available ;
 }
+

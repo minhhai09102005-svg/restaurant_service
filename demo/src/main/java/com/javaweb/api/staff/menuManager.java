@@ -8,19 +8,22 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
 public class menuManager{
     private final itemService itemService;
 
-    @GetMapping(value ="/public/item/findAll/")
+    @GetMapping(value ="/public/item/all/")
     public List<itemResponse> findAll(){
         return itemService.findAll();
     }
-    @GetMapping(value ="/public/item/findByName")
-    public List<itemResponse> findByName(String name) throws DataNotFoundException {
-        return itemService.findByName(name);
+
+    @GetMapping(value="/public/item/conditions/")
+    public List<itemResponse> findByFilters(@RequestParam Map<String,Object> filters){
+        return itemService.findByFilters(filters);
     }
+
 
 }

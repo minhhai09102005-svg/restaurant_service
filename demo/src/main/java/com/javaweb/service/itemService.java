@@ -6,11 +6,9 @@ import com.javaweb.model.response.itemResponse;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 public interface itemService {
     List<itemResponse> findAll();
-    List<itemResponse> findByCategory(itemCategory category);
-    List<itemResponse> findByName(String name);
-    List<itemResponse> findByCost(BigDecimal left,BigDecimal right);
-
+    List<itemResponse> findByFilters(Map<String, Object> filters);
 }
